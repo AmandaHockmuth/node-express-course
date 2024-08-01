@@ -11,12 +11,12 @@ require(`dotenv`).config();
 //middleware
 app.use(express.static(`./public`));
 app.use(express.json());
+app.use(notFound);
+app.use(errorHandlerMiddleware);
 
 //routes
 
 app.use(`/api/v1/tasks`, tasks);
-app.use(notFound);
-app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
 

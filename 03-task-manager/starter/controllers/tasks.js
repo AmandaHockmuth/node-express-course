@@ -5,8 +5,9 @@ const { createCustomError } = require(`../errors/custom-error`);
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({});
   res.status(200).json({ tasks });
-  // res.status(200).json({ tasks, amount:tasks.length });     Alt Options
-  // res.status(200).json({ status: "success", data:{tasks, nbHits:tasks.length} });     Alt Options
+  //     Alt Options
+  // res.status(200).json({ tasks, amount:tasks.length });
+  // res.status(200).json({ status: "success", data:{tasks, nbHits:tasks.length} });
 });
 
 const createTask = asyncWrapper(async (req, res) => {
@@ -47,7 +48,8 @@ const updateTask = asyncWrapper(async (req, res, next) => {
   }
 });
 
-// const replaceTask = async (req, res) => {     "Put" example as opposed to "Patch"
+//     "PUT" EXAMPLE AS OPPOSED TO "PATCH"
+// const replaceTask = async (req, res) => {
 //   try {
 //     const { id: taskID } = req.params;
 //     const task = await Task.findOneAndUpdate({ _id: taskID }, req.body, {
